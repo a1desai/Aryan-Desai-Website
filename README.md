@@ -30,30 +30,30 @@ This portfolio website serves as a digital resume and project showcase, designed
 📁 **Project Structure**
 
 aryan-desai-website/
-├─ index.html # Main homepage
-├─ css/ # Styling for each section
-│ ├─ about.css
-│ ├─ contact.css
-│ ├─ experience.css
-│ ├─ footer.css
-│ ├─ introduction.css
-│ ├─ main.css
-│ ├─ project.css
-│ ├─ skills.css
-│ └─ top.css
-├─ js/ # JavaScript for animations and interactivity
-│ ├─ animations.js
-│ ├─ contact.js
-│ └─ skills.js
-├─ images/ # Image assets
-│ ├─ Aryan.jpg
-│ ├─ Byte.jpg
-│ ├─ FlashFocus.jpg
-│ ├─ Kingdomrush.jpg
-│ ├─ Qsec.jpg
-│ └─ taskmanager.jpg
-├─ README.md # This file
-└─ LICENSE # MIT License
+├─ index.html                 # Main homepage
+├─ css/                       # Styling for each section
+│   ├─ about.css
+│   ├─ contact.css
+│   ├─ experience.css
+│   ├─ footer.css
+│   ├─ introduction.css
+│   ├─ main.css
+│   ├─ project.css
+│   ├─ skills.css
+│   └─ top.css
+├─ js/                        # JavaScript for animations and interactivity
+│   ├─ animations.js
+│   ├─ contact.js
+│   └─ skills.js
+├─ images/                    # Image assets
+│   ├─ Aryan.jpg
+│   ├─ Byte.jpg
+│   ├─ FlashFocus.jpg
+│   ├─ Kingdomrush.jpg
+│   ├─ Qsec.jpg
+│   └─ taskmanager.jpg
+├─ README.md                  # This file
+└─ LICENSE                    # MIT License
 
 🚀 **Deployment**
 
