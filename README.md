@@ -29,36 +29,37 @@ This portfolio website serves as a digital resume and project showcase, designed
 
 📁 **Project Structure**
 
+```text
 aryan-desai-website/
-├─ index.html                 # Main homepage
-├─ css/                       # Styling for each section
-│   ├─ about.css
-│   ├─ contact.css
-│   ├─ experience.css
-│   ├─ footer.css
-│   ├─ introduction.css
-│   ├─ main.css
-│   ├─ project.css
-│   ├─ skills.css
-│   └─ top.css
-├─ js/                        # JavaScript for animations and interactivity
-│   ├─ animations.js
-│   ├─ contact.js
-│   └─ skills.js
-├─ images/                    # Image assets
-│   ├─ Aryan.jpg
-│   ├─ Byte.jpg
-│   ├─ FlashFocus.jpg
-│   ├─ Kingdomrush.jpg
-│   ├─ Qsec.jpg
-│   └─ taskmanager.jpg
-├─ README.md                  # This file
-└─ LICENSE                    # MIT License
+├── index.html                 # Main homepage
+├── css/                       # Styling for each section
+│   ├── about.css
+│   ├── contact.css
+│   ├── experience.css
+│   ├── footer.css
+│   ├── introduction.css
+│   ├── main.css
+│   ├── project.css
+│   ├── skills.css
+│   └── top.css
+├── js/                        # JavaScript for animations and interactivity
+│   ├── animations.js
+│   ├── contact.js
+│   └── skills.js
+├── images/                    # Image assets
+│   ├── Aryan.jpg
+│   ├── Byte.jpg
+│   ├── FlashFocus.jpg
+│   ├── Kingdomrush.jpg
+│   ├── Qsec.jpg
+│   └── taskmanager.jpg
+├── README.md                  # This file
+└── LICENSE                    # MIT License
+
 
 🚀 **Deployment**
 
 I deployed this website on **Vercel** for fast, reliable hosting.  
-[Visit the live site here](https://aryan-desai-website.vercel.app)
-<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/73e77f5d-2b41-47de-9902-05cabacd6f2e" />
+
 
 
