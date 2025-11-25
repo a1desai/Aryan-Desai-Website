@@ -27,8 +27,15 @@ const experienceData = [
         role: "Back-End Developer | Node.js, Express.js, MongoDB, API Integration",
         organization: "Quantum Science & Engineering (QSEC)",
         github: "#",
-        date: "Sep 2023 - Dec 2023",
+        date: "Sep 2025 - Present",
         img: "Images/Qsec.jpg" // Make sure this matches your file name
+    },
+    {
+        role: "Web Developer/ Technology Director",
+        organization: "Google Developer Groups on Campus (GDSG)",
+        github: "#",
+        date: "December 2025 - Present",
+        img: "Images/GDSG.jpg"
     }
 ];
 
