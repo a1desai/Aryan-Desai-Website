@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
     typeWriter(intro, "Hi, I'm Aryan Desai!", 100, () => {
         // Add cursor to sub-text while typing
         subText.classList.add('cursor');
-        typeWriter(subText, "Technology Director | Full-Stack Developer | AI/ML Enthusiast", 50);
+        typeWriter(subText, "AI/ML Enthusiast | Full-Stack Developer | Cybersecurity", 50);
     });
 
     // Observe elements for fade-in
@@ -115,17 +115,31 @@ function createResumeModal() {
             <h2>Download Resume</h2>
             <p>Choose your preferred format:</p>
             <div class="modal-buttons">
-                <a href="resume.pdf" download class="modal-btn pdf-btn">
+                <button id="pdf-download" class="modal-btn pdf-btn">
                     <i class="fas fa-file-pdf"></i> PDF
-                </a>
-                <a href="resume.docx" download class="modal-btn docx-btn">
+                </button>
+                <button id="docx-download" class="modal-btn docx-btn">
                     <i class="fas fa-file-word"></i> Word
-                </a>
+                </button>
             </div>
         </div>
     `;
 
     document.body.appendChild(modal);
+
+    // PDF Download
+    const pdfBtn = modal.querySelector('#pdf-download');
+    pdfBtn.addEventListener('click', () => {
+        downloadResume('pdf');
+        modal.style.display = 'none';
+    });
+
+    // DOCX Download
+    const docxBtn = modal.querySelector('#docx-download');
+    docxBtn.addEventListener('click', () => {
+        downloadResume('docx');
+        modal.style.display = 'none';
+    });
 
     const closeBtn = modal.querySelector('.close-modal');
     closeBtn.addEventListener('click', () => {
@@ -137,6 +151,65 @@ function createResumeModal() {
             modal.style.display = 'none';
         }
     });
+}
+
+// Download Resume function
+function downloadResume(format) {
+    const resumeContent = `ARYAN DESAI
+AI/ML Enthusiast | Full-Stack Developer | Cybersecurity
+
+CONTACT
+Email: aryan@example.com
+LinkedIn: linkedin.com/in/aryan
+GitHub: github.com/aryan
+
+EXPERIENCE
+
+Technology Director
+Google Developer Groups on Campus
+November 2025 - Present
+Lead development team using Agile methodologies, conducting peer code reviews and mentoring 50+ students on web development
+
+AI/ML Contributor
+Byte - SecureByte
+September 2025 - November 2025
+Optimized codebase processing workflows using Python, implementing automated testing reducing failures by 35%
+
+Back End Developer
+Quantum Science and Engineering Club
+November 2025 - Present
+Developed backend architecture for quantum visualization platform, implementing scalable code and database operations
+
+SKILLS
+
+Languages: JavaScript, TypeScript, Python, C++, Java, SQL, HTML/CSS, C, Bash
+Web Technologies: React.js, Node.js, Express.js, Next.js, PostgreSQL, REST APIs, TailwindCSS
+Tools & Frameworks: Docker, AWS, Git/GitHub, PyTorch, Jest, TensorFlow, Linux/Unix
+
+PROJECTS
+
+BeaverBuddy - Full-stack mental health web application with React, TypeScript, Node.js, PostgreSQL
+FlashFocus - AI-powered learning platform with Machine Learning and Web Technologies
+AI Racer - AI racing game built with Python and game development technologies
+Quantum Platform - Quantum visualization and computation platform with Backend technologies`;
+
+    if (format === 'pdf') {
+        const element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(resumeContent));
+        element.setAttribute('download', 'Aryan_Desai_Resume.pdf');
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+    } else if (format === 'docx') {
+        const element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(resumeContent));
+        element.setAttribute('download', 'Aryan_Desai_Resume.docx');
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+    }
 }
 
 // Parallax effect for hero section

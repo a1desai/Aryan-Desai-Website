@@ -1,16 +1,17 @@
 /* About Section Styling */
 #about {
     width: 100%;
-    min-height: 70vh;
-    background: linear-gradient(135deg, #000000, #001f3f, #002266); /* black-blue gradient */
+    min-height: auto;
+    background: linear-gradient(135deg, #000000, #001f3f, #002266);
     color: #ffffff;
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
-    padding: 80px 50px;
+    justify-content: center;
+    padding: 40px 30px;
     font-family: 'Poppins', sans-serif;
     position: relative;
     overflow: hidden;
+    gap: 30px;
 }
 
 #about-canvas {
@@ -25,39 +26,42 @@
 
 /* Left Side - Text Content */
 .about-left {
-    max-width: 600px;
-    transform: translateX(150px);
+    max-width: 700px;
+    flex: 1;
+    transform: none;
+    z-index: 1;
 }
 
 #about h2 {
-    font-size: 48px;
+    font-size: 38px;
     font-weight: 700;
-    margin-bottom: 20px;
-    color: #00c0ff; /* neon blue */
+    margin-bottom: 12px;
+    color: #00c0ff;
     text-shadow: 0 0 8px rgba(0, 192, 255, 0.5);
 }
 
 #about p {
-    font-size: 20px;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    color: #e0f7ff; /* lighter neon blue */
-    text-shadow: 0 0 6px rgba(0, 192, 255, 0.7); /* subtle glow to improve readability */
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: #e0f7ff;
+    text-shadow: 0 0 6px rgba(0, 192, 255, 0.7);
 }
 
 /* Buttons */
 .about-buttons {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
+    margin-bottom: 16px;
 }
 
 .btn-primary {
     background: linear-gradient(135deg, #001f3f, #003366);
     color: #00c0ff;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
-    padding: 12px 28px;
+    padding: 9px 20px;
     border: 2px solid #00c0ff;
     border-radius: 8px;
     cursor: pointer;
@@ -95,8 +99,8 @@
 }
 
 .about-right {
-    width: 300px; /* smaller to fit better */
-    height: 300px;
+    width: 240px; /* smaller to fit better */
+    height: 240px;
     background: linear-gradient(135deg, #001f3f, #002266);
     border-radius: 20px;
     box-shadow: 0 0 40px rgba(0, 192, 255, 0.5);
@@ -104,10 +108,9 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
-    /* Move image slightly to the left */
-    transform: translateX(-100px); /* move left by 50px */
-    margin-left: 0; /* remove any previous margin-left if set */
+    flex-shrink: 0;
+    transform: none;
+    margin-left: 0;
 }
 
 .about-right img {
@@ -115,4 +118,74 @@
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
+}
+
+/* Skills and Experience Containers */
+#skills-container,
+#experience-container {
+    width: 100%;
+    margin-top: 16px;
+    display: none;
+}
+
+#skills-container.active,
+#experience-container.active {
+    display: grid !important;
+}
+
+/* Make sure containers sit in the about-left section */
+.about-left #skills-container,
+.about-left #experience-container {
+    max-width: 100%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    #about {
+        flex-direction: column;
+        padding: 50px 30px;
+        gap: 30px;
+    }
+
+    .about-left {
+        max-width: 100%;
+        transform: none;
+    }
+
+    .about-right {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    #about {
+        padding: 40px 20px;
+        gap: 20px;
+    }
+
+    #about h2 {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    #about p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+
+    .about-buttons {
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+
+    .about-right {
+        width: 240px;
+        height: 240px;
+    }
 }

@@ -20,19 +20,25 @@ const experienceData = [
         role: "Technology Director",
         organization: "Google Developer Groups on Campus",
         date: "November 2025 - Present",
-        description: "Lead development team using Agile methodologies, conducting peer code reviews and mentoring 50+ students on web development"
+        description: "Lead development team using Agile methodologies, conducting peer code reviews and mentoring 50+ students on web development",
+        icon: "fa-google",
+        image: "Images/GDSG.jpg"
     },
     {
         role: "AI/ML Contributor",
         organization: "Byte - SecureByte",
-        date: "September 2025 - Present",
-        description: "Optimized codebase processing workflows using Python, implementing automated testing reducing failures by 35%"
+        date: "September 2025 - November 2025",
+        description: "Optimized codebase processing workflows using Python, implementing automated testing reducing failures by 35%",
+        icon: "fa-code",
+        image: "Images/Byte.jpg"
     },
     {
         role: "Back End Developer",
         organization: "Quantum Science and Engineering Club",
         date: "November 2025 - Present",
-        description: "Developed backend architecture for quantum visualization platform, implementing scalable code and database operations"
+        description: "Developed backend architecture for quantum visualization platform, implementing scalable code and database operations",
+        icon: "fa-cube",
+        image: "Images/Qsec.jpg"
     }
 ];
 
@@ -41,107 +47,168 @@ const experienceContainer = document.getElementById('experience-container');
 
 // Toggle Skills
 function toggleSkills() {
+    const isSkillsVisible = skillsContainer.classList.contains('active');
+    
+    // Hide experience
+    experienceContainer.classList.remove('active');
     experienceContainer.style.display = 'none';
-
-    if (skillsContainer.style.display === "none") {
+    
+    if (!isSkillsVisible) {
+        // Show skills
+        skillsContainer.classList.add('active');
         skillsContainer.innerHTML = '';
-        skillsContainer.style.display = 'flex';
-        skillsContainer.style.justifyContent = 'space-between';
-        skillsContainer.style.flexWrap = 'wrap';
-        skillsContainer.style.marginTop = '20px';
-        skillsContainer.style.gap = '20px';
+        skillsContainer.style.display = 'grid';
+        skillsContainer.style.gridTemplateColumns = 'repeat(3, 1fr)';
+        skillsContainer.style.marginTop = '12px';
+        skillsContainer.style.gap = '12px';
 
-        skillsData.forEach(category => {
+        skillsData.forEach((category, index) => {
             const div = document.createElement('div');
             div.classList.add('skill-category');
 
+            // Category Icon
+            const icons = ['fa-code', 'fa-server', 'fa-tools'];
+            const iconDiv = document.createElement('div');
+            const icon = document.createElement('i');
+            icon.className = `fas ${icons[index]}`;
+            iconDiv.appendChild(icon);
+            div.appendChild(iconDiv);
+
             const h3 = document.createElement('h3');
             h3.textContent = category.title;
-            h3.style.color = '#00c0ff';
-            h3.style.marginBottom = '12px';
-            h3.style.fontSize = '18px';
-            h3.style.fontWeight = '600';
             div.appendChild(h3);
 
             const ul = document.createElement('ul');
-            ul.style.listStyle = 'none';
-            ul.style.padding = '0';
+            
             category.items.forEach(item => {
                 const li = document.createElement('li');
-                li.textContent = '✓ ' + item;
-                li.style.padding = '6px 0';
-                li.style.color = '#e0f7ff';
+                
+                const checkmark = document.createElement('span');
+                checkmark.textContent = '✓';
+                
+                const text = document.createElement('span');
+                text.textContent = item;
+                
+                li.appendChild(checkmark);
+                li.appendChild(text);
+                
+                li.addEventListener('mouseenter', function() {
+                    text.style.color = '#00c0ff';
+                    text.style.fontWeight = '600';
+                    checkmark.style.transform = 'scale(1.3)';
+                });
+                
+                li.addEventListener('mouseleave', function() {
+                    text.style.color = '#c8dff5';
+                    text.style.fontWeight = '400';
+                    checkmark.style.transform = 'scale(1)';
+                });
+                
                 ul.appendChild(li);
             });
             div.appendChild(ul);
-            div.style.flex = '1';
-            div.style.minWidth = '200px';
+
+            // Card hover effects
+            div.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+                this.style.boxShadow = '0 15px 35px rgba(0, 192, 255, 0.25)';
+                this.style.backgroundColor = 'rgba(0, 192, 255, 0.12)';
+                this.style.borderColor = 'rgba(0, 192, 255, 0.4)';
+            });
+
+            div.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+                this.style.backgroundColor = 'rgba(0, 192, 255, 0.08)';
+                this.style.borderColor = 'rgba(0, 192, 255, 0.2)';
+            });
 
             skillsContainer.appendChild(div);
         });
 
         skillsContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
     } else {
-        skillsContainer.style.display = "none";
+        // Hide skills
+        skillsContainer.classList.remove('active');
+        skillsContainer.style.display = 'none';
     }
 }
 
 // Toggle Experience
 function toggleExperience() {
+    const isExperienceVisible = experienceContainer.classList.contains('active');
+    
+    // Hide skills
+    skillsContainer.classList.remove('active');
     skillsContainer.style.display = 'none';
 
-    if (experienceContainer.style.display === "none") {
+    if (!isExperienceVisible) {
+        // Show experience
+        experienceContainer.classList.add('active');
         experienceContainer.innerHTML = '';
-        experienceContainer.style.display = 'flex';
-        experienceContainer.style.justifyContent = 'space-between';
-        experienceContainer.style.flexWrap = 'wrap';
-        experienceContainer.style.marginTop = '20px';
-        experienceContainer.style.gap = '20px';
+        experienceContainer.style.display = 'grid';
+        experienceContainer.style.gridTemplateColumns = 'repeat(3, 1fr)';
+        experienceContainer.style.marginTop = '12px';
+        experienceContainer.style.gap = '12px';
 
         experienceData.forEach(exp => {
             const div = document.createElement('div');
             div.classList.add('experience-card');
-            div.style.flex = '1';
-            div.style.minWidth = '250px';
-            div.style.padding = '16px';
-            div.style.borderLeft = '3px solid #00c0ff';
-            div.style.backgroundColor = 'rgba(0, 192, 255, 0.05)';
-            div.style.borderRadius = '8px';
+
+            // Icon
+            const iconDiv = document.createElement('div');
+            const icon = document.createElement('i');
+            icon.className = `fas ${exp.icon}`;
+            iconDiv.appendChild(icon);
+            div.appendChild(iconDiv);
 
             const role = document.createElement('h3');
             role.textContent = exp.role;
-            role.style.color = '#00c0ff';
-            role.style.marginBottom = '8px';
             div.appendChild(role);
 
             const org = document.createElement('p');
             org.textContent = exp.organization;
-            org.style.color = '#e0f7ff';
-            org.style.fontWeight = '600';
-            org.style.marginBottom = '6px';
             div.appendChild(org);
 
             const date = document.createElement('p');
             date.classList.add('exp-date');
             date.textContent = exp.date;
-            date.style.color = '#a0d0ff';
-            date.style.fontSize = '14px';
-            date.style.marginBottom = '10px';
             div.appendChild(date);
 
             const description = document.createElement('p');
             description.textContent = exp.description;
-            description.style.color = '#d0e8ff';
-            description.style.lineHeight = '1.5';
-            description.style.fontSize = '14px';
             div.appendChild(description);
+
+            // Image container
+            const imgBox = document.createElement('div');
+            imgBox.classList.add('exp-img-box');
+            const img = document.createElement('img');
+            img.src = exp.image;
+            img.alt = exp.organization;
+            imgBox.appendChild(img);
+            div.appendChild(imgBox);
+
+            // Hover effect
+            div.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-6px)';
+                this.style.boxShadow = '0 10px 25px rgba(0, 192, 255, 0.2)';
+                this.style.backgroundColor = 'rgba(0, 192, 255, 0.12)';
+            });
+
+            div.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+                this.style.backgroundColor = 'rgba(0, 192, 255, 0.08)';
+            });
 
             experienceContainer.appendChild(div);
         });
 
         experienceContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
     } else {
-        experienceContainer.style.display = "none";
+        // Hide experience
+        experienceContainer.classList.remove('active');
+        experienceContainer.style.display = 'none';
     }
 }
 

@@ -88,3 +88,62 @@
 .nav-links li a:hover {
     color: #00c0ff;
 }
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 30px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .nav-links {
+        gap: 24px;
+        margin-right: 50px;
+    }
+
+    .nav-links li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 20px;
+        height: 70px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        gap: 18px;
+        margin-right: 0;
+    }
+
+    .nav-links li a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 15px;
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links li a {
+        font-size: 12px;
+    }
+}
